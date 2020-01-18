@@ -1,0 +1,6 @@
+/bazel-*
+/output/
+node_modules
+.bazelversion
+.*.swp
+*~
