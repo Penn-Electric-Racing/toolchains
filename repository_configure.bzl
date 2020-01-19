@@ -6,7 +6,7 @@ def repository_configure(rctx, platform, label_prefix):
     substitutions = {
         "%{repo_name}": rctx.name,
         "%{repo_path}" : repo_path,
-        "%{tools_path" : repo_path,
+        "%{tools_path}" : repo_path,
         "%{relative_path}" : relative_path,
         "%{platform}": platform
     }
