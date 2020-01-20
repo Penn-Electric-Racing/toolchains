@@ -19,7 +19,7 @@ def _arm_none_repository_impl(rctx):
     sha256 = info["sha256"]
     strip_prefix = info["strip"]
 
-    repository_configure(rctx, platform, "//arm_none_gcc")
+    repository_configure(rctx, platform, rctx.attr.version, "//arm_none_gcc")
 
     rctx.download_and_extract(
         url=url,
@@ -27,5 +27,5 @@ def _arm_none_repository_impl(rctx):
         stripPrefix=strip_prefix
     )
 
-arm_none_gcc = repository_rule(_arm_none_repository_impl,
+arm_none_gcc_repo = repository_rule(_arm_none_repository_impl,
         attrs= {"version" : attr.string(default="9-2019-q4-major")})

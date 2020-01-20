@@ -1,5 +1,5 @@
 
-def repository_configure(rctx, platform, label_prefix):
+def repository_configure(rctx, platform, version, label_prefix):
     repo_path = str(rctx.path("")) + "/"
     relative_path = "external/%s/" % rctx.name
 
@@ -8,7 +8,8 @@ def repository_configure(rctx, platform, label_prefix):
         "%{repo_path}" : repo_path,
         "%{tools_path}" : repo_path,
         "%{relative_path}" : relative_path,
-        "%{platform}": platform
+        "%{platform}": platform,
+        "%{version}": version
     }
 
     rctx.template(

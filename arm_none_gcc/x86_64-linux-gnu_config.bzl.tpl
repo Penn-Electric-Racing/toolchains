@@ -16,18 +16,22 @@ def _gcc_arm_config(ctx):
         dbg_feature, opt_feature
     ]
 
+    action_configs = []
+
     return [cc_common.create_cc_toolchain_config_info(
                             ctx=ctx,
-                            toolchain_identifier="cc-compiler-arm",
+                            features = features,
+                            action_configs = action_configs,
+                            tool_paths = tool_paths,
+                            artifact_name_patterns = [],
+                            cxx_builtin_include_directories = builtin_includes,
+                            toolchain_identifier="gcc-arm-linux",
                             compiler="gcc",
                             abi_version="gcc",
                             abi_libc_version="glibc_2.19",
-                            cxx_builtin_include_directories = builtin_includes,
-                            tool_paths = tool_paths,
-                            features = features,
                             host_system_name="%{platform}",
                             target_system_name="arm-none-eabi",
-                            target_cpu="arm",
+                            target_cpu="armeabi-v7a",
                             target_libc="glibc_unknown")]
 
 gcc_arm_config = rule(implementation=_gcc_arm_config)
