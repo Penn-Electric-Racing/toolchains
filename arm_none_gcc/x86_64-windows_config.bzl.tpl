@@ -1,5 +1,4 @@
 load("@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl", "feature")
-
 load("//:common.bzl", "make_default_link_feature", "make_default_compile_feature", 
                       "make_tools", "builtin_includes")
 

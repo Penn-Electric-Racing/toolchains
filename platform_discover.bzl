@@ -1,4 +1,3 @@
-
 def discover_platform(rctx):
     if rctx.os.name == "linux":
         exec_result = rctx.execute(["uname", "-m"])
@@ -8,4 +7,6 @@ def discover_platform(rctx):
             print(exec_result.stderr)
         arch = exec_result.stdout.strip()
         return arch + "-linux-gnu"
+    elif rctx.os.name.startswith('win'):
+        return 'x86_64-windows'
     return "unknown"

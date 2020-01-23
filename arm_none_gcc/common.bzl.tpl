@@ -71,7 +71,7 @@ def make_default_link_feature():
                 flag_groups = [
                     flag_group(
                         flags=["-mcpu=cortex-m7", '-march=armv7e-m', "-mthumb", "-mthumb-interwork",
-                                   "-mfpu=fpv5-d16", "-mfloat-abi=hard", "-Wno-attributes",
+                                   "-mfpu=fpv5-d16", "-mfloat-abi=hard", "-Wno-attributes", "-lstdc++",
                                    "-lnosys", "-specs=nosys.specs", "-lc", "-lm",
                                    "-Wl,-Map=info.map,--cref", "-Wl,--gc-sections"]
                    )
@@ -111,7 +111,7 @@ def make_default_compile_feature():
             )
         ])
 
-def make_unix_tools():
+def make_tools():
     return [
             tool_path(
                 name = "ld",

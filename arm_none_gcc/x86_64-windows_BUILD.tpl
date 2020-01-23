@@ -1,14 +1,15 @@
 load(":config.bzl", "gcc_arm_config")
 
-filegroup(name = 'gcc', srcs = ['bin/arm-none-eabi-gcc'])
-filegroup(name = 'gdb', srcs = ['bin/arm-none-eabi-gdb'])
-filegroup(name = 'ar', srcs = ['bin/arm-none-eabi-ar'])
-filegroup(name = 'ld', srcs = ['bin/arm-none-eabi-ld'])
-filegroup(name = 'nm', srcs = ['bin/arm-none-eabi-nm'])
-filegroup(name = 'objcopy', srcs = ['bin/arm-none-eabi-objcopy'])
-filegroup(name = 'objdump', srcs = ['bin/arm-none-eabi-objdump'])
-filegroup(name = 'strip', srcs = ['bin/arm-none-eabi-strip'])
-filegroup(name = 'as', srcs = ['bin/arm-none-eabi-as'])
+filegroup(name = 'gcc', srcs = ['bin/arm-none-eabi-gcc.exe'])
+filegroup(name = 'gdb', srcs = ['bin/arm-none-eabi-gdb.exe'],
+	visibility=['//visibility:public'])
+filegroup(name = 'ar', srcs = ['bin/arm-none-eabi-ar.exe'])
+filegroup(name = 'ld', srcs = ['bin/arm-none-eabi-ld.exe'])
+filegroup(name = 'nm', srcs = ['bin/arm-none-eabi-nm.exe'])
+filegroup(name = 'objcopy', srcs = ['bin/arm-none-eabi-objcopy.exe'])
+filegroup(name = 'objdump', srcs = ['bin/arm-none-eabi-objdump.exe'])
+filegroup(name = 'strip', srcs = ['bin/arm-none-eabi-strip.exe'])
+filegroup(name = 'as', srcs = ['bin/arm-none-eabi-as.exe'])
 
 filegroup(
   name = 'compiler_pieces',
@@ -67,7 +68,7 @@ toolchain(
     name="toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
-        "@platforms//os:linux"
+        "@platforms//os:windows"
     ],
     target_compatible_with = [
         "@platforms//os:none",
