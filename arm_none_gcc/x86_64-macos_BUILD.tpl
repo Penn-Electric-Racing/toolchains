@@ -50,8 +50,8 @@ filegroup(
 
 cc_toolchain(
     name = "compiler",
-    toolchain_identifier = "gcc-linux-arm",
-    toolchain_config = ":gcc-linux-arm-config",
+    toolchain_identifier = "gcc-macos-arm",
+    toolchain_config = ":gcc-macos-arm-config",
     all_files = ":arm_none_all_files",
     compiler_files = ":arm_none_all_files",
     dwp_files = ":empty",
@@ -62,13 +62,13 @@ cc_toolchain(
     visibility = ["//visibility:public"],
 )
 
-gcc_arm_config(name="gcc-linux-arm-config")
+gcc_arm_config(name="gcc-macos-arm-config")
 
 toolchain(
     name="toolchain",
     exec_compatible_with = [
         "@platforms//cpu:x86_64",
-        "@platforms//os:linux"
+        "@platforms//os:osx"
     ],
     target_compatible_with = [
         "@platforms//os:none",

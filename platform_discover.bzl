@@ -9,4 +9,6 @@ def discover_platform(rctx):
         return arch + "-linux-gnu"
     elif rctx.os.name.startswith('win'):
         return 'x86_64-windows'
+    elif rctx.os.name.startswith('mac'):
+        return 'x86_64-macos'
     return "unknown"
